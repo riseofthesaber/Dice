@@ -5,8 +5,12 @@ void setup()
 }
 void draw()
 {
-  Die DND= new Die(250,250);
-  DND.show();
+  for(int X=5; X<50; X+=5 ){
+     for(int Y=5; Y<50; Y+=5 ){
+      Die DND= new Die(X*10,Y*10);
+      DND.show();
+     }
+  }
   //your code here
 }
 void mousePressed()
@@ -18,6 +22,7 @@ class Die //models one single dice cube
   int myX;
   int myY;
   int result;
+  float size=50/2;
   //variable declarations here
   Die(int x, int y) //constructor
   {
@@ -27,27 +32,45 @@ class Die //models one single dice cube
   }
   void roll()
   {
-  result=/*(int)(Math.random()*6)+1*/1;
+  result=(int)(Math.random()*6)+1;
     //your code here
   }
   void show()
   {
     fill(255);
-    rect(myX,myY,25,25,10);
+    rect(myX-(size/2),myY-(size/2),size,size,(size/2.5));
     fill(0);
     if(result==1){
-    ellipse(myX,myY,5,5);
+    ellipse(myX,myY,(size/5),(size/5));
     }else  if(result==2){
-    
+    ellipse(myX-(size/5),myY-(size/5),(size/5),(size/5));
+     ellipse(myX+(size/5),myY+(size/5),(size/5),(size/5));
     }else if(result==3){
-    
+     ellipse(myX,myY,(size/5),(size/5));
+     ellipse(myX-(size/5),myY-(size/5),(size/5),(size/5));
+     ellipse(myX+(size/5),myY+(size/5),(size/5),(size/5));
     }else  if(result==4){
-    
+     ellipse(myX-(size/5),myY-(size/5),(size/5),(size/5));
+     ellipse(myX+(size/5),myY+(size/5),(size/5),(size/5));
+     ellipse(myX+(size/5),myY-(size/5),(size/5),(size/5));
+     ellipse(myX-(size/5),myY+(size/5),(size/5),(size/5));
     }else if(result==5){
-    
+    ellipse(myX,myY,(size/5),(size/5));
+     ellipse(myX-(size/5),myY-(size/5),(size/5),(size/5));
+     ellipse(myX+(size/5),myY+(size/5),(size/5),(size/5));
+     ellipse(myX+(size/5),myY-(size/5),(size/5),(size/5));
+     ellipse(myX-(size/5),myY+(size/5),(size/5),(size/5));
     }else{
+      ellipse(myX-(size/5),myY,(size/5),(size/5));
+       ellipse(myX+(size/5),myY,(size/5),(size/5));
+      //
+      ellipse(myX-(size/5),myY-(size/4),(size/5),(size/5));
+     ellipse(myX+(size/5),myY+(size/4),(size/5),(size/5));
+     ellipse(myX+(size/5),myY-(size/4),(size/5),(size/5));
+     ellipse(myX-(size/5),myY+(size/4),(size/5),(size/5));
     
     }
     //your code here
   }
 }
+
