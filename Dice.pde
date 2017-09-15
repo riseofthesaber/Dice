@@ -5,12 +5,19 @@ void setup()
 }
 void draw()
 {
+  int value=0;
+  background(175);
   for(int X=5; X<50; X+=5 ){
-     for(int Y=5; Y<50; Y+=5 ){
+     for(int Y=5; Y<45; Y+=5 ){
       Die DND= new Die(X*10,Y*10);
       DND.show();
+    value = value+DND.result;
+  
      }
   }
+  textAlign(CENTER);
+  textSize(100);
+ text(value,250,500);
   //your code here
 }
 void mousePressed()
@@ -40,6 +47,7 @@ class Die //models one single dice cube
     fill(255);
     rect(myX-(size/2),myY-(size/2),size,size,(size/2.5));
     fill(0);
+  
     if(result==1){
     ellipse(myX,myY,(size/5),(size/5));
     }else  if(result==2){
